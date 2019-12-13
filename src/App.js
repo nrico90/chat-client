@@ -62,17 +62,17 @@ class App extends Component {
 
     return (
       <main>
-        <form onSubmit={this.onSubmit}>
+        <h1 className="title">Client chat!!</h1>
+        <div className="div">
+          <img src={logo} className="App-logo" alt="logo" />
+        </div>
+        <form className="form" onSubmit={this.onSubmit}>
           <input onChange={this.onchange} type="text" value={this.state.text} />
           <button>submit</button>
         </form>
         {/* <NameContainer data={} /> */}
-        <button onClick={this.onClick}>Reset</button>
+        {/* <button onClick={this.onClick}>Reset</button> */}
 
-        <div className="div">
-          <h1 className="title">Client chat!!</h1>
-          <img src={logo} className="App-logo" alt="logo" />
-        </div>
         {list}
       </main>
     );
