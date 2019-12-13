@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/* global EventSource */
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+class App extends Component {
+  stream = new EventSource("http://localhost:4000/stream");
+
+  componentDidMount() {
+    this.stream.onmessage = event => {
+      console.log("event.data test:", event.data);
+
+      const parsed = JSON.parse(event.data);
+
+      console.log("parsed test", parsed);
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        Client chat!!
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
 export default App;
