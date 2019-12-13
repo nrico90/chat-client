@@ -1,4 +1,16 @@
+* {
+  margin: 5%;
+}
 .App {
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  color: rgb(28, 126, 151);
+}
+
+.div {
   text-align: center;
 }
 
